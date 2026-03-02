@@ -291,7 +291,7 @@ def main():
                 print("CONTACT ADDED")
             elif number == 3:
                 #search contacts
-                searchName = input("Enter Name of Contact")
+                searchName = input("Enter Name of Contact: ")
                 searchedContacts = search_by_name(contacts, searchName)
                 print("Searched Contacts")
                 display_all_contacts(searchedContacts)
