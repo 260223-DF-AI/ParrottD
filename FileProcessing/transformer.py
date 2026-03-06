@@ -6,7 +6,7 @@ def calculate_totals(records):
     new_records = []
     total = 0
     for record in records:
-        total += record['quantity'] * record['price']
+        total = record['quantity'] * record['price']
         record.update({'total': total})
     return records
     pass
@@ -16,13 +16,15 @@ def aggregate_by_store(records):
     Aggregate sales by store_id.
     Returns: Dict mapping store_id to total sales
     """
-    list_dicts = []
+    dict = {}
     for record in records:
-        if record['store_id'] not in list_dicts:
-            list_dicts.append({'store_id': record['store_id', 'total_sales': 0]})
-        else:
-            list_dicts[record['store_id']]['total'] += record['total']
-    return list_dicts
+        if record['store_id'] not in dict:
+            if record['store_id']:
+                dict.update({record['store_id']: 0})
+        if record['store_id']  in dict:
+            current = dict.get(record['store_id'])
+            dict.update({record['store_id']: current + record['total']})
+    return dict
     pass
 
 def aggregate_by_product(records):
@@ -30,11 +32,12 @@ def aggregate_by_product(records):
     Aggregate sales by product.
     Returns: Dict mapping product to total quantity sold
     """
-    list_dicts = []
+    dict = {}
     for record in records:
-        if record['store_id'] not in list_dicts:
-            list_dicts.append({'store_id': record['store_id', 'total_sales': 0]})
-        else:
-            list_dicts[record['store_id']]['quantity'] += record['quantity']
-    return list_dicts
+        if record['product'] not in dict:
+            dict.update({record['product']: 0})
+        if record['product'] in dict:
+            current = dict.get(record['product'])
+            dict.update({record['product']: current + record['quantity']})
+    return dict
     pass

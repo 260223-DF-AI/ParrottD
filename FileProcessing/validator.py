@@ -21,21 +21,23 @@ def validate_sales_record(record, line_number):
         # Try to parse the string into a datetime object using the specified format
         datetime.strptime(record["date"], "%Y-%m-%d")
     except FileProcessingError:
-        raise InvalidDataError(f"- Line {line_number}: Invalid date format 'invalid-date'")
+        raise InvalidDataError(f"- Line {line_number}: Invalid date format '{record['date']}'")
 
 
-    if not isinstance(record["quantity"], int):
+    if not record["quantity"].isdigit():
         raise InvalidDataError(f"- Line {line_number}: Invalid quantity {record['quantity']}")
 
+    number_quantity = int(record["quantity"])
     try:
-        if record["quantity"] >= 1:
-            test = 0
+        if number_quantity >= 1:
+            record["quantity"] = number_quantity
     except FileProcessingError:
         raise InvalidDataError(f"- Line {line_number}: Quantity must be positive, got {record['quantity']}")
 
+    number_price = float(record["price"])
     try:
-        if record["price"] >= 1:
-            float(record["price"])
+        if number_price >= 0.01:
+            record["price"] = float(record["price"])
     except FileProcessingError:
         raise InvalidDataError(f"- Line {line_number}: Invalid Price {record['price']}")
 
@@ -49,7 +51,7 @@ def validate_all_records(records):
     Returns: Tuple of (valid_records, error_list)
     """
     valid_records = []
-    len(records)
+    print(len(records))
     valid_records = []
     error_list = []
     for index,record in enumerate(records):
