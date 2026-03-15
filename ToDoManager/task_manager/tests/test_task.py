@@ -1,9 +1,9 @@
 """Tests for the Task model."""
 
+
 import pytest
 
 # Ensure project root is on sys.path so task_manager package can be imported
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from task_manager.models.task import Task
 
