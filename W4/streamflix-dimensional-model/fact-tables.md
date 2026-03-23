@@ -12,7 +12,7 @@ Shows all relevant data for each show in streaming service
 - number_views -Additive
 - average_drop_off_time - Non-Additive
 - average_episode_length - Non-additive
-- completion_rate - Non - Additive
+- completion_rate - Non-Additive
 - rating - Non-Additive
 
 Subscriber Data

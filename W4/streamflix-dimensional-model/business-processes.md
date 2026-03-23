@@ -5,7 +5,8 @@
 
 Content Performance
 Which shows are performing the best by various metrics
-Which will show what are the best shows to keep and if for the creators 
+Which will show what are the best shows to keep and the creator for the show
+one row for each show for a week
 or the studio to make a new show if they want
 And if the show is not performing you would get rid of that show by not renewing
 
@@ -18,7 +19,10 @@ Device Telemetry
 Subscription Analytic
 
 Will show us User acquisition, churn, and revenue analysis
+grain - one for each customer every month
 check for potential issues with business model and potential on how to better optimize the service
+
+
 user_id, plan_type, age_of_account, current_sub_duration, user_age, gender, number_of_cancellations, sub_revenue, current_date_subscribed
 
 User Database
